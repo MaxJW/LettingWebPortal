@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LettingWebCustomerPortal.Models.Property>
+
+@{
+    ViewData["Title"] = "Index";
+
+    Random r = new Random();
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@foreach (var item in Model)
+{
+    int num = r.Next();
+    string imgUrl = "https://source.unsplash.com/featured/?sig=" + num.ToString() + "&house/300"; //Request Unsplash image
+
+    <div class="card my-3">
+        <div class="row no-gutters">
+            <img src=@imgUrl alt="" width="300" height="230" />
+            <div class="col">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.Address),
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </h4>
+                    <h3 class="card-title mb-2">
+                        £@Html.DisplayFor(modelItem => item.Price)
+                    </h3>
+                    <p class="card-text">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </p>
+                    <button class="btn btn-success buy-btn mx-1 m-auto">Save to List</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<td>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </td>-->
+}
