@@ -15,5 +15,7 @@ namespace LWCustomer.Data
         }
 
         public DbSet<Property> Property { get; set; }
+
+        public DbSet<Enquired> Enquired { get; set; }
     }
 }

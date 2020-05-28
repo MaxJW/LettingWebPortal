@@ -1,0 +1,30 @@
+﻿@model LWCustomer.Models.Enquired
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Enquired</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PropertyId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PropertyId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HasEnquired)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HasEnquired)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EnquiredId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

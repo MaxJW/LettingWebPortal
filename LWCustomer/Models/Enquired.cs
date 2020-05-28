@@ -7,17 +7,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LWCustomer.Models
 {
-    public class Property
+    public class Enquired
     {
-        public int Id { get; set; }
+        public int EnquiredId { get; set; }
+
+        [ForeignKey("AspNetUsers")]
         [Required]
-        public string Address { get; set; }
+        public int UserId { get; set; }
+
+        [ForeignKey("Property")]
         [Required]
-        public string Location { get; set; }
+        public int PropertyId { get; set; }
+
         [Required]
-        public string Description { get; set; }
-        [Required]
-        [Display(Name = "PCM")]
-        public int Price { get; set; }
+        public bool HasEnquired { get; set; }
     }
 }
